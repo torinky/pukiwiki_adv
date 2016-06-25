@@ -42,7 +42,7 @@ class Render{
 	/**
 	 * jQueryのバージョン
 	 */
-	const JQUERY_VER = '2.1.3';
+	const JQUERY_VER = '2.2.3';
 	//const JQUERY_VER = '1.11.2';
 	/**
 	 * jQuery UIのバージョン
@@ -55,11 +55,11 @@ class Render{
 	/**
 	 * Twitter Bootstrapのバージョン
 	 */
-	const TWITTER_BOOTSTRAP_VER = '3.3.5';
+	const TWITTER_BOOTSTRAP_VER = '3.3.6';
 	/**
 	 * Font Awesomeのバージョン
 	 */
-	const FONT_AWESOME_VER = '4.4.0';
+	const FONT_AWESOME_VER = '4.6.3';
 	/**
 	 * スキンスクリプト（未圧縮）
 	 */
@@ -462,7 +462,7 @@ class Render{
 
 			// Twitter Bootstrap
 			// http://getbootstrap.com/
-			if ($conf['bootswatch'] === false || empty($conf['bootswatch'])){
+			if (isset($conf['bootswatch']) && $conf['bootswatch'] === false || empty($conf['bootswatch'])){
 				$link_tags[] = array('rel'=>'stylesheet', 'href'=>'//' . self::BOOTSTRAP_CDN . '/bootstrap/' . self::TWITTER_BOOTSTRAP_VER . '/css/bootstrap.min.css', 'type'=>'text/css');
 				$link_tags[] = array('rel'=>'stylesheet', 'href'=>'//' . self::BOOTSTRAP_CDN . '/bootstrap/' . self::TWITTER_BOOTSTRAP_VER . '/css/bootstrap-theme.min.css', 'type'=>'text/css', 'id'=>'bootstrap-theme');
 			}else{
@@ -472,7 +472,7 @@ class Render{
 			}
 
 			// jQuery UIのテーマ
-			if (! empty($conf['ui_theme']) && $conf['ui_theme'] !== false){
+			if (isset($conf['ui_theme']) && ! empty($conf['ui_theme']) && $conf['ui_theme'] !== false){
 				$link_tags[] = array('rel'=>'stylesheet', 'href'=>'//code.jquery.com/ui/' . self::JQUERY_UI_VER .'/themes/' . $conf['ui_theme'] . '/jquery-ui.min.css', 'type'=>'text/css', 'id'=>'ui-theme');
 			}
 		}else{

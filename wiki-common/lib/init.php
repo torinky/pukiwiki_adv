@@ -1,9 +1,9 @@
 <?php
 /**
  * PukiWiki Advance - Yet another WikiWikiWeb clone.
- * $Id: init.php,v 1.57.18 2015/12/06 00:24:00 Logue Exp $
+ * $Id: init.php,v 1.57.18 2016/05/16 21:03:00 Logue Exp $
  * Copyright (C)
- *   2010-2015 PukiWiki Advance Developers Team
+ *   2010-2016 PukiWiki Advance Developers Team
  *   2005-2009 PukiWiki Plus! Team
  *   2002-2007,2009,2011 PukiWiki Developers Team
  *   2001-2002 Originally written by yu-ji
@@ -24,11 +24,11 @@ use Zend\I18n\Translator\Translator;
 
 // PukiWiki version / Copyright / License
 define('S_APPNAME', 'PukiWiki Advance');
-define('S_VERSION', 'v 2.1.0-alpha');
-define('S_REVSION', '20151206');
+define('S_VERSION', 'v 2.0.3');
+define('S_REVSION', '20160516');
 define('S_COPYRIGHT',
 	'<strong>'.S_APPNAME.' ' . S_VERSION . '</strong>' .
-	' Copyright &#169; 2010-2015' .
+	' Copyright &#169; 2010-2016' .
 	' <a href="http://pukiwiki.logue.be/" rel="external">PukiWiki Advance Team</a>.<br />' .
 	' Licensed under the <a href="http://www.gnu.org/licenses/gpl-2.0.html" rel="external">GPLv2</a> or Later.' .
 	' Based on <a href="http://pukiwiki.cafelounge.net/plus/" rel="external">"PukiWiki Plus! i18n"</a>'
@@ -141,10 +141,18 @@ defined('SITE_INIT_DIR')	or define('SITE_INIT_DIR',	SITE_HOME . 'init/'     );	/
 defined('EXTEND_DIR')		or define('EXTEND_DIR',		SITE_HOME . 'extend/'   );	// Extend directory
 defined('EXT_PLUGIN_DIR')	or define('EXT_PLUGIN_DIR',	EXTEND_DIR. 'plugin/'   );	// Extend Plugin directory
 defined('EXT_LANG_DIR')		or define('EXT_LANG_DIR',	EXTEND_DIR. 'locale/'   );	// Extend Language file
+defined('EXT_SKIN_DIR')		or define('EXT_SKIN_DIR',	EXTEND_DIR. 'skin/'     );	// Extend Skin directory
 
-defined('IMAGE_URI')		or define('IMAGE_URI',		COMMON_URI . 'assets/image/'   );	// URI to Static Image
-defined('JS_URI')			or define('JS_URI', 		COMMON_URI . 'assets/js/'      );	// URI to JavaScript Libraly
-defined('CSS_URI')			or define('CSS_URI', 		COMMON_URI . 'assets/css/'     );	// URI to JavaScript Libraly
+defined('SKIN_DIR')			or define('SKIN_DIR',		WWW_HOME . 'skin/'      );	// Path to Skin directory
+defined('IMAGE_DIR')		or define('IMAGE_DIR',		WWW_HOME . 'image/'     );	// Path to
+
+defined('SKIN_URI')			or define('SKIN_URI',		ROOT_URI . 'skin/'      );	// URI to Skin directory
+defined('IMAGE_URI')		or define('IMAGE_URI',		COMMON_URI . 'image/'   );	// URI to Static Image
+defined('JS_URI')			or define('JS_URI', 		COMMON_URI . 'js/'      );	// URI to JavaScript Libraly
+
+defined('THEME_PLUS_NAME')	or define('THEME_PLUS_NAME',  'theme/');			// SKIN_URI + THEME_PLUS_NAME
+defined('IMAGE_URI') or define('IMAGE_URI',		COMMON_URI . 'image/');
+defined('JS_URI') or define('JS_URI', 		COMMON_URI . 'js/');
 
 defined('PKWK_OPTIMISE') or define('PKWK_OPTIMISE', 0);
 defined('PLUS_PROTECT_MODE')	or define('PLUS_PROTECT_MODE',	Auth::ROLE_GUEST); // 0,2,3,4,5
